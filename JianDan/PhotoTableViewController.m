@@ -13,9 +13,10 @@
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 @property (weak, nonatomic) IBOutlet UITextField *pageTextField;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *goPrePageBarButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *goNextPageBarButton;
 
 @property (nonatomic, strong) NSString *prePage;
-
 @property (nonatomic) NSInteger latestPage;
 
 @end
@@ -39,7 +40,7 @@
     
 //    Set TextField And Keyboard Delegate
     self.pageTextField.delegate = self;
-    self.pageTextField.keyboardType = UIKeyboardTypeNumberPad;
+//    self.pageTextField.keyboardType = UIKeyboardTypeNumberPad;
     self.pageTextField.returnKeyType = UIReturnKeyGo;
     self.pageTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
     
@@ -49,6 +50,15 @@
 //    NSString *webURL = [PHOTOWEBURL stringByReplacingOccurrencesOfString:@"NUMBER"
 //                                                              withString:[NSString stringWithFormat:@"%ld", (long)self.latestPage]];
 //    [self startOmeletteFetchWith:webURL];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    // 如果当前页面和最新页面相等，则不能到下一页
+    self.goNextPageBarButton.enabled = self.prePage.integerValue == self.latestPage ? NO : YES;
+    self.pageTextField.text = self.prePage != nil ? self.prePage : @"";
+    
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -89,8 +99,45 @@
     return [latestPageStr integerValue];
 }
 
+- (void)goPageWithNumber:(NSInteger)destinationPageNum
+{
+//    NSString *page = self.pageTextField.text;
+//    NSInteger pageNum = [page integerValue];
+    
+    
+    if (self.prePage.integerValue == destinationPageNum) {
+        
+        NSLog(@"Page is Not Change");
+        
+        return;
+    }
+    else if (destinationPageNum > self.latestPage){
+        NSLog(@"超出最新页面");
+        
+        
+        return;
+    }
+    else{
+        self.prePage = [NSString stringWithFormat:@"%ld", (long)destinationPageNum];
+    }
+        
+    self.goNextPageBarButton.enabled = self.prePage.integerValue == self.latestPage ? NO : YES;
+}
+
 
 #pragma mark - IBAction
+
+- (IBAction)goNextPage:(UIBarButtonItem *)sender
+{
+    [self goPageWithNumber:(self.prePage.integerValue + 1)];
+}
+
+
+- (IBAction)goPrePage:(UIBarButtonItem *)sender
+{
+    [self goPageWithNumber:(self.prePage.integerValue - 1)];
+}
+
 
 - (IBAction)goPage:(id)sender
 {
@@ -98,27 +145,27 @@
     
     [self.pageTextField resignFirstResponder];
     
-    NSString *page = self.pageTextField.text;
-    NSInteger pageNum = [page integerValue];
+//    NSString *page = self.pageTextField.text;
+    NSInteger pageNum = [self.pageTextField.text integerValue];
     
-    
-    if ([page isEqual:self.prePage]) {
-        
-        NSLog(@"Page is Not Change");
-        
-        
-        return;
-    }
-    else if (pageNum > self.latestPage){
-        NSLog(@"超出最新页面");
-        
-        
-        return;
-    }
-    else{
-        self.prePage = page;
-        
-    }
+    [self goPageWithNumber:pageNum];
+//    if ([page isEqual:self.prePage]) {
+//        
+//        NSLog(@"Page is Not Change");
+//        
+//        
+//        return;
+//    }
+//    else if (pageNum > self.latestPage){
+//        NSLog(@"超出最新页面");
+//        
+//        
+//        return;
+//    }
+//    else{
+//        self.prePage = page;
+//        
+//    }
 }
 
 
@@ -189,12 +236,42 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
+//    Photo *photo = [self.fetchedResultsController objectAtIndexPath:indexPath];
+//    
+//    cell.textLabel.text = photo.publisher;
+//    cell.detailTextLabel.text = photo.date;
+    
+    [self configureCell:cell atIndexPath:indexPath];
+    
+    return cell;
+}
+
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath {
+    
     Photo *photo = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     cell.textLabel.text = photo.publisher;
     cell.detailTextLabel.text = photo.date;
+
     
-    return cell;
+//    UILabel *publisherLabel = (UILabel *)[cell viewWithTag:100];
+//    publisherLabel.text = photo.publisher ? photo.publisher : @"Loading";
+//    
+//    UILabel *dateLabel = (UILabel *)[cell viewWithTag:101];
+//    dateLabel.text = photo.date ? photo.date : @"Loading";
+//    
+//    UILabel *gifLabel = (UILabel *)[cell viewWithTag:102];
+//    
+    if (photo.thumbnail != nil) {
+        cell.backgroundColor = [UIColor lightGrayColor];
+//        gifLabel.hidden = NO;
+    }
+    else{
+        cell.backgroundColor = [UIColor whiteColor];
+//        NSLog(@"%@ : %@", photo.publisher, photo.date);
+//        gifLabel.hidden = YES;
+    }
+    
 }
 
 

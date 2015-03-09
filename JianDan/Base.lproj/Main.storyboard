@@ -13,23 +13,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="Jandan Photo Cell" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Photo Cell" textLabel="ttD-ik-EFL" detailTextLabel="GZy-3g-CbP" style="IBUITableViewCellStyleSubtitle" id="VA1-bK-0eT">
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="Jandan Photo Cell" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Photo Cell" textLabel="qlG-Ld-WlG" detailTextLabel="24q-OX-Wf4" style="IBUITableViewCellStyleValue2" id="VA1-bK-0eT">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VA1-bK-0eT" id="3Pv-Qc-ZgO">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ttD-ik-EFL">
-                                            <rect key="frame" x="15" y="3" width="34" height="22"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qlG-Ld-WlG">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GZy-3g-CbP">
-                                            <rect key="frame" x="15" y="25" width="43" height="15"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="24q-OX-Wf4">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
@@ -48,19 +46,29 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="mv0-bx-s3V">
                         <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" title="上一页" id="gGg-53-7pX">
+                            <connections>
+                                <action selector="goPrePage:" destination="8Sd-pZ-qyh" id="kYY-md-GhH"/>
+                            </connections>
+                        </barButtonItem>
                         <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="页码" textAlignment="center" minimumFontSize="17" id="kYz-3S-BTB">
                             <rect key="frame" x="260" y="7" width="80" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
-                        </textField>
-                        <barButtonItem key="rightBarButtonItem" title="Go" id="PcM-3h-sBK">
                             <connections>
-                                <action selector="goPage:" destination="8Sd-pZ-qyh" id="gBf-Cv-gHk"/>
+                                <action selector="goPage:" destination="8Sd-pZ-qyh" eventType="editingDidEndOnExit" id="rXr-UY-etc"/>
+                            </connections>
+                        </textField>
+                        <barButtonItem key="rightBarButtonItem" title="下一页" id="PcM-3h-sBK">
+                            <connections>
+                                <action selector="goNextPage:" destination="8Sd-pZ-qyh" id="EAh-Gr-ZKu"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="goNextPageBarButton" destination="PcM-3h-sBK" id="Njg-94-a1T"/>
+                        <outlet property="goPrePageBarButton" destination="gGg-53-7pX" id="PtP-8m-Osh"/>
                         <outlet property="pageTextField" destination="kYz-3S-BTB" id="ok9-ot-1oP"/>
                     </connections>
                 </tableViewController>

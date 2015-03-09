@@ -6,9 +6,10 @@
         <attribute name="number" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="page" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="publisher" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbnail" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="unique" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Photo" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="Photo" positionX="-63" positionY="-18" width="128" height="150"/>
     </elements>
 </model>

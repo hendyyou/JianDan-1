@@ -11,11 +11,12 @@
 
 @implementation Photo
 
+@dynamic date;
 @dynamic imageURL;
 @dynamic number;
-@dynamic date;
+@dynamic page;
 @dynamic publisher;
 @dynamic unique;
-@dynamic page;
+@dynamic thumbnail;
 
 @end

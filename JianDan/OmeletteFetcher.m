@@ -86,8 +86,6 @@
         photo.page = page;
         photo.unique = unique;
         
-//        NSString *tempForGetTtile = [self getStringInSourceString:readyAnalyzeCode ByPrefix:@"title=\"防伪码" andSuffix:@"</strong>"];
-//        NSString *title = [self getStringInSourceString:tempForGetTtile ByPrefix:@"\">" andSuffix:@"</strong>"];
 
         NSString *publisher = [self getStringInSourceString:readyAnalyzeCode ByPrefix:@"&quot;&gt;" andSuffix:@"&lt;"];
         
@@ -97,21 +95,17 @@
         
         NSString *getNumberTemp = [self getStringInSourceString:readyAnalyzeCode ByPrefix:@"<span class=\"righttext\">" andSuffix:@"</span>"];
         photo.number = [self getStringInSourceString:getNumberTemp ByPrefix:@"\">" andSuffix:@"</a>"];
-//        photo.number = [self getStringInSourceString:getNumberTemp ByPrefix:[NSString stringWithFormat:@"comment-%@\">", unique] andSuffix:@"</a>"];
-        
-//        NSUInteger length = readyAnalyzeCode.length;
-//        NSRange orgSrcRange = [readyAnalyzeCode rangeOfString:@"org_src"];
+
         NSString *imageURL = nil;
         if ([readyAnalyzeCode rangeOfString:@"org_src"].length != 0) {
+
             imageURL = [self getStringInSourceString:readyAnalyzeCode ByPrefix:@"org_src=\"" andSuffix:@"\""];
+            
+            photo.thumbnail = [self getStringInSourceString:readyAnalyzeCode ByPrefix:@"<img src=\"" andSuffix:@"\""];
+            
         }else{
             imageURL = [self getStringInSourceString:readyAnalyzeCode ByPrefix:@"<img src=\"" andSuffix:@"\""];
         }
-        
-//        if ([photo.number isEqualToString:@"143788"]) {
-//            
-//            NSLog(@"URL is %@", imageURL);
-//        }
         
         photo.imageURL = imageURL;
         

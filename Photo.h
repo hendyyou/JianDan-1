@@ -12,11 +12,12 @@
 
 @interface Photo : NSManagedObject
 
+@property (nonatomic, retain) NSString * date;
 @property (nonatomic, retain) NSString * imageURL;
 @property (nonatomic, retain) NSString * number;
-@property (nonatomic, retain) NSString * date;
+@property (nonatomic, retain) NSString * page;
 @property (nonatomic, retain) NSString * publisher;
 @property (nonatomic, retain) NSString * unique;
-@property (nonatomic, retain) NSString * page;
+@property (nonatomic, retain) NSString * thumbnail;
 
 @end
