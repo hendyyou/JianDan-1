@@ -8,9 +8,11 @@
 
 #import "CoreDataTableViewController.h"
 #import "ImageViewController.h"
+#import "OmeletteFetcher.h"
 #import "AppDelegate.h"
 #import "Photo.h"
+#import "Web.h"
 
-@interface PhotoTableViewController : CoreDataTableViewController
+@interface PhotoTableViewController : CoreDataTableViewController<UITextFieldDelegate>
 
 @end

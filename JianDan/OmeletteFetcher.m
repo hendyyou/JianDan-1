@@ -32,6 +32,8 @@
 //        NSRange photoPrePosition = [readyAnalyzeCode rangeOfString:@"<li class=\"row\" id"];
 //        NSRange photoPrePosition = [readyAnalyzeCode rangeOfString:@"<img src=\""];
         
+        NSString *page = [self getStringInSourceString:readyAnalyzeCode ByPrefix:@"current-comment-page\">[" andSuffix:@"]"];
+        
         NSRange photoPrePosition = [readyAnalyzeCode rangeOfString:@"<li id"];
 //        NSLog(@"\n photoPrePosition.location = %lu, html.length = %d\n", (unsigned long)photoPrePosition.location, html.length);
         
@@ -52,14 +54,15 @@
 //        然后拿出剩下的网页源代码
         readyAnalyzeCode = [temp substringFromIndex:(photoAfterPosition.location+photoAfterPosition.length)];
         
-        [self putPhotoIntoManagedObjectContext:context ByAnalyzeOnePhotoCode:onePhotoCode];
+        [self putPhotoIntoManagedObjectContext:context ByAnalyzeOnePhotoCode:onePhotoCode withPage:page];
     }
 }
 
 
 
 + (void)putPhotoIntoManagedObjectContext:(NSManagedObjectContext *)context
-                      ByAnalyzeOnePhotoCode:(NSString *)onePhotoCode
+                   ByAnalyzeOnePhotoCode:(NSString *)onePhotoCode
+                                withPage:(NSString *)page
 {
     NSString *readyAnalyzeCode = onePhotoCode;
     
@@ -69,7 +72,7 @@
     
     //query in database
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Photo"];
-    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES]];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES]];
     request.predicate = [NSPredicate predicateWithFormat:@"unique = %@", unique];
     
     //execute query
@@ -80,15 +83,21 @@
         // handle error
     }else if (![matches count]){ // none found, so let's create a Photo for that Omelette photo
         Photo *photo = [NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:context];
+        photo.page = page;
         photo.unique = unique;
         
 //        NSString *tempForGetTtile = [self getStringInSourceString:readyAnalyzeCode ByPrefix:@"title=\"防伪码" andSuffix:@"</strong>"];
 //        NSString *title = [self getStringInSourceString:tempForGetTtile ByPrefix:@"\">" andSuffix:@"</strong>"];
 
-        NSString *title = [self getStringInSourceString:readyAnalyzeCode ByPrefix:@"&quot;&gt;" andSuffix:@"&lt;"];
-        photo.title = title;
+        NSString *publisher = [self getStringInSourceString:readyAnalyzeCode ByPrefix:@"&quot;&gt;" andSuffix:@"&lt;"];
         
-        photo.subtitle = [self getStringInSourceString:readyAnalyzeCode ByPrefix:@"&gt;: &#39;\">@" andSuffix:@"</a>"];
+        photo.publisher = publisher;
+        
+        photo.date = [self getStringInSourceString:readyAnalyzeCode ByPrefix:@"&gt;: &#39;\">@" andSuffix:@"</a>"];
+        
+        NSString *getNumberTemp = [self getStringInSourceString:readyAnalyzeCode ByPrefix:@"<span class=\"righttext\">" andSuffix:@"</span>"];
+        photo.number = [self getStringInSourceString:getNumberTemp ByPrefix:@"\">" andSuffix:@"</a>"];
+//        photo.number = [self getStringInSourceString:getNumberTemp ByPrefix:[NSString stringWithFormat:@"comment-%@\">", unique] andSuffix:@"</a>"];
         
 //        NSUInteger length = readyAnalyzeCode.length;
 //        NSRange orgSrcRange = [readyAnalyzeCode rangeOfString:@"org_src"];
@@ -99,7 +108,14 @@
             imageURL = [self getStringInSourceString:readyAnalyzeCode ByPrefix:@"<img src=\"" andSuffix:@"\""];
         }
         
+//        if ([photo.number isEqualToString:@"143788"]) {
+//            
+//            NSLog(@"URL is %@", imageURL);
+//        }
+        
         photo.imageURL = imageURL;
+        
+        
     }else { // found the Photo do nothing
         NSLog(@"\nthere is only one photo in context which unique = %@\n", unique);
     }

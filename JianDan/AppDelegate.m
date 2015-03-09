@@ -14,16 +14,8 @@
 
 @implementation AppDelegate
 
-- (void)startOmeletteFetch
-{
-    [OmeletteFetcher putPhotosIntoManagedObjectContext:self.managedObjectContext
-                                       ByAnalyzeWebURL:WEBURL];
-}
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
-    [self startOmeletteFetch];
 
     return YES;
 }

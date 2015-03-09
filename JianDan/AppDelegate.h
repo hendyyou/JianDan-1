@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
-#import "OmeletteFetcher.h"
-#import "Web.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

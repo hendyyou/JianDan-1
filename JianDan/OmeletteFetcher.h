@@ -10,6 +10,9 @@
 #import <CoreData/CoreData.h>
 
 @interface OmeletteFetcher : NSObject
+
 + (void)putPhotosIntoManagedObjectContext:(NSManagedObjectContext *)context
                           ByAnalyzeWebURL:(NSString *)webURL;
+
++ (NSString *)getStringInSourceString:(NSString *)sourceString ByPrefix:(NSString *)prefix andSuffix:(NSString *)suffix;
 @end

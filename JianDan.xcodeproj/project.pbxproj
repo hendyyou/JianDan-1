@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14C198361AAD8DB5006D74A3 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C198351AAD8DB5006D74A3 /* Photo.m */; };
 		14CC59D41A9C52A10071BF92 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC59D31A9C52A10071BF92 /* main.m */; };
 		14CC59D71A9C52A10071BF92 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC59D61A9C52A10071BF92 /* AppDelegate.m */; };
 		14CC59DA1A9C52A10071BF92 /* JianDan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 14CC59D81A9C52A10071BF92 /* JianDan.xcdatamodeld */; };
@@ -17,7 +18,6 @@
 		14CC59F11A9C52A10071BF92 /* JianDanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC59F01A9C52A10071BF92 /* JianDanTests.m */; };
 		14CC59FC1A9C52F50071BF92 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC59FB1A9C52F50071BF92 /* CoreDataTableViewController.m */; };
 		14CC5A001A9C56480071BF92 /* PhotoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC59FF1A9C56480071BF92 /* PhotoTableViewController.m */; };
-		14CC5A031A9C57FA0071BF92 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC5A021A9C57FA0071BF92 /* Photo.m */; };
 		14CC5A091A9C5A850071BF92 /* OmeletteFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC5A081A9C5A850071BF92 /* OmeletteFetcher.m */; };
 		14CC5A0D1A9C5EA40071BF92 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC5A0C1A9C5EA40071BF92 /* ImageViewController.m */; };
 /* End PBXBuildFile section */
@@ -33,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		14C198341AAD8DB5006D74A3 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = ../Photo.h; sourceTree = "<group>"; };
+		14C198351AAD8DB5006D74A3 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = ../Photo.m; sourceTree = "<group>"; };
 		14CC59CE1A9C52A10071BF92 /* JianDan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JianDan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14CC59D21A9C52A10071BF92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14CC59D31A9C52A10071BF92 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -51,8 +53,6 @@
 		14CC59FB1A9C52F50071BF92 /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
 		14CC59FE1A9C56480071BF92 /* PhotoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoTableViewController.h; sourceTree = "<group>"; };
 		14CC59FF1A9C56480071BF92 /* PhotoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoTableViewController.m; sourceTree = "<group>"; };
-		14CC5A011A9C57FA0071BF92 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
-		14CC5A021A9C57FA0071BF92 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		14CC5A061A9C598E0071BF92 /* Web.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Web.h; path = ../Web.h; sourceTree = "<group>"; };
 		14CC5A071A9C5A850071BF92 /* OmeletteFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OmeletteFetcher.h; sourceTree = "<group>"; };
 		14CC5A081A9C5A850071BF92 /* OmeletteFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OmeletteFetcher.m; sourceTree = "<group>"; };
@@ -157,8 +157,8 @@
 		14CC5A041A9C57FD0071BF92 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				14CC5A011A9C57FA0071BF92 /* Photo.h */,
-				14CC5A021A9C57FA0071BF92 /* Photo.m */,
+				14C198341AAD8DB5006D74A3 /* Photo.h */,
+				14C198351AAD8DB5006D74A3 /* Photo.m */,
 			);
 			name = Entity;
 			sourceTree = "<group>";
@@ -281,10 +281,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14CC5A031A9C57FA0071BF92 /* Photo.m in Sources */,
 				14CC59D71A9C52A10071BF92 /* AppDelegate.m in Sources */,
 				14CC59DA1A9C52A10071BF92 /* JianDan.xcdatamodeld in Sources */,
 				14CC59DD1A9C52A10071BF92 /* ViewController.m in Sources */,
+				14C198361AAD8DB5006D74A3 /* Photo.m in Sources */,
 				14CC5A091A9C5A850071BF92 /* OmeletteFetcher.m in Sources */,
 				14CC59D41A9C52A10071BF92 /* main.m in Sources */,
 				14CC5A0D1A9C5EA40071BF92 /* ImageViewController.m in Sources */,
@@ -480,6 +480,7 @@
 				14CC59F61A9C52A10071BF92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		14CC59F71A9C52A10071BF92 /* Build configuration list for PBXNativeTarget "JianDanTests" */ = {
 			isa = XCConfigurationList;
@@ -488,6 +489,7 @@
 				14CC59F91A9C52A10071BF92 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

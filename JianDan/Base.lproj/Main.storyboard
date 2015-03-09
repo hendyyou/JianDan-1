@@ -46,11 +46,27 @@
                             <outlet property="delegate" destination="8Sd-pZ-qyh" id="8PJ-JG-n7l"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="mv0-bx-s3V"/>
+                    <navigationItem key="navigationItem" id="mv0-bx-s3V">
+                        <nil key="title"/>
+                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="页码" textAlignment="center" minimumFontSize="17" id="kYz-3S-BTB">
+                            <rect key="frame" x="260" y="7" width="80" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <barButtonItem key="rightBarButtonItem" title="Go" id="PcM-3h-sBK">
+                            <connections>
+                                <action selector="goPage:" destination="8Sd-pZ-qyh" id="gBf-Cv-gHk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="pageTextField" destination="kYz-3S-BTB" id="ok9-ot-1oP"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cVe-7m-SA0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1224" y="387"/>
+            <point key="canvasLocation" x="1231" y="387"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="de2-cd-6bP">

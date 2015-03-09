@@ -12,6 +12,12 @@
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
+@property (weak, nonatomic) IBOutlet UITextField *pageTextField;
+
+@property (nonatomic, strong) NSString *prePage;
+
+@property (nonatomic) NSInteger latestPage;
+
 @end
 
 @implementation PhotoTableViewController
@@ -26,8 +32,23 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+//    Set managedObjectContext
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     self.managedObjectContext = appDelegate.managedObjectContext;
+    
+    
+//    Set TextField And Keyboard Delegate
+    self.pageTextField.delegate = self;
+    self.pageTextField.keyboardType = UIKeyboardTypeNumberPad;
+    self.pageTextField.returnKeyType = UIReturnKeyGo;
+    self.pageTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    
+    self.latestPage = [self getLatestPage];
+    self.prePage = [NSString stringWithFormat:@"%ld", (long)self.latestPage];
+    
+//    NSString *webURL = [PHOTOWEBURL stringByReplacingOccurrencesOfString:@"NUMBER"
+//                                                              withString:[NSString stringWithFormat:@"%ld", (long)self.latestPage]];
+//    [self startOmeletteFetchWith:webURL];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,8 +57,94 @@
 }
 
 
+#pragma mark - Utils
+
+- (void)startOmeletteFetchWith:(NSString *)webURL
+{
+    [OmeletteFetcher putPhotosIntoManagedObjectContext:self.managedObjectContext
+                                       ByAnalyzeWebURL:webURL];
+    
+    self.fetchedResultsController.fetchRequest.predicate = [NSPredicate predicateWithFormat:@"page = %@", self.prePage];
+    [self.fetchedResultsController performFetch:nil];
+    [self.tableView reloadData];
+
+//    NSLog(@"predicate : %@", self.fetchedResultsController.fetchRequest.predicate.predicateFormat);
+}
+
+
+- (NSInteger)getLatestPage
+{
+    NSURL * url = [NSURL URLWithString:WEBURL];
+    NSData * data = [NSData dataWithContentsOfURL:url];
+    //解决中文乱码,用GBK
+    NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingUTF8);
+    NSString * html = [[NSString alloc] initWithData:data encoding:enc];
+    
+    //    readyAnalyzeCode
+    //    待分析的代码
+    NSString *jdHomeHtml = html;
+    
+    NSString *latestPageStr = [OmeletteFetcher getStringInSourceString:jdHomeHtml ByPrefix:@"current-comment-page\">[" andSuffix:@"]"];
+    
+    return [latestPageStr integerValue];
+}
+
+
+#pragma mark - IBAction
+
+- (IBAction)goPage:(id)sender
+{
+    NSLog(@"Go Page %@", self.pageTextField.text);
+    
+    [self.pageTextField resignFirstResponder];
+    
+    NSString *page = self.pageTextField.text;
+    NSInteger pageNum = [page integerValue];
+    
+    
+    if ([page isEqual:self.prePage]) {
+        
+        NSLog(@"Page is Not Change");
+        
+        
+        return;
+    }
+    else if (pageNum > self.latestPage){
+        NSLog(@"超出最新页面");
+        
+        
+        return;
+    }
+    else{
+        self.prePage = page;
+        
+    }
+}
+
+
+//- (IBAction)TextField_DidEndOnExit:(id)sender {
+//    // 隐藏键盘.
+//    [sender resignFirstResponder];
+//}
+
+
+
 
 #pragma mark - Setter and Getter
+
+- (void)setPrePage:(NSString *)prePage
+{
+    _prePage = prePage;
+
+    self.pageTextField.text = prePage;
+    
+    NSString *webURL = [PHOTOWEBURL stringByReplacingOccurrencesOfString:@"NUMBER"
+                                                              withString:prePage];
+    [self startOmeletteFetchWith:webURL];
+}
+
+
+
 /*
 -(NSManagedObjectContext *)managedObjectContext
 {
@@ -57,12 +164,13 @@
     _managedObjectContext = managedObjectContext;
     if (managedObjectContext) {
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Photo"];
-        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:YES]];
-        request.predicate = nil; // all Photographers
+        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:YES]];
+//        request.predicate = [NSPredicate predicateWithFormat:@"page like %@", self.prePage]; 
         self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request
                                                                             managedObjectContext:managedObjectContext
                                                                               sectionNameKeyPath:nil
                                                                                        cacheName:nil];
+//        NSLog(@"predicate : %@", request.predicate.predicateFormat);
     } else {
         self.fetchedResultsController = nil;
     }
@@ -83,8 +191,8 @@
     
     Photo *photo = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    cell.textLabel.text = photo.title;
-    cell.detailTextLabel.text = photo.subtitle;
+    cell.textLabel.text = photo.publisher;
+    cell.detailTextLabel.text = photo.date;
     
     return cell;
 }
@@ -105,8 +213,9 @@
                 if([segue.destinationViewController isKindOfClass:[ImageViewController class]]){
                     Photo *photo = [self.fetchedResultsController objectAtIndexPath:indexPath];
                     ImageViewController *imageVC = (ImageViewController *)segue.destinationViewController;
-                    imageVC.imageURL = photo.imageURL;
-                    imageVC.title = photo.title;
+                    imageVC.photo = photo;
+//                    imageVC.imageURL = photo.imageURL;
+//                    imageVC.title = photo.title;
                 }
             }
         }

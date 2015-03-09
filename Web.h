@@ -9,6 +9,10 @@
 #ifndef JianDan_Web_h
 #define JianDan_Web_h
 
-#define WEBURL @"http://jandan.net/pic/page-6046#comments"
+//#define WEBURL @"http://jandan.net/pic/page-5752#comments"
+
+#define WEBURL @"http://jandan.net/pic"
+
+#define PHOTOWEBURL @"http://jandan.net/pic/page-NUMBER#comments"
 
 #endif

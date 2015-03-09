@@ -2,7 +2,7 @@
 //  Photo.m
 //  JianDan
 //
-//  Created by Sean on 15/2/24.
+//  Created by Sean on 15/3/9.
 //  Copyright (c) 2015年 ZIWUXUANXU. All rights reserved.
 //
 
@@ -12,8 +12,10 @@
 @implementation Photo
 
 @dynamic imageURL;
-@dynamic subtitle;
-@dynamic title;
+@dynamic number;
+@dynamic date;
+@dynamic publisher;
 @dynamic unique;
+@dynamic page;
 
 @end

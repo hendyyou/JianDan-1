@@ -10,6 +10,7 @@
 #import "OmeletteFetcher.h"
 
 @interface ImageViewController () <UIScrollViewDelegate>
+@property (strong, nonatomic) NSString * imageURL;
 @property (strong, nonatomic) UIImage * image;
 @property (strong, nonatomic) UIImageView * imageView;
 @property (strong, nonatomic) UIScrollView *scrollView;
@@ -23,6 +24,7 @@
 #pragma mark - Synthesize
 @synthesize gifView = _gifView;
 @synthesize scrollView = _scrollView;
+@synthesize photo = _photo;
 
 #pragma mark -main
 
@@ -33,6 +35,12 @@
     
     [self.spinner startAnimating];
 }
+
+
+
+
+
+
 
 
 #pragma mark - Utils
@@ -80,11 +88,22 @@
     return _gifView;
 }
 
+- (void)setPhoto:(Photo *)photo
+{
+    _photo = photo;
+    
+    self.imageURL = photo.imageURL;
+    
+}
+
 -(void)setImageURL:(NSString *)imageURL
 {
     _imageURL = imageURL;
     
+    self.title = self.photo.number;
+    
     if ([imageURL hasSuffix:@"gif"]) {
+        self.title = [self.title stringByAppendingString:@"[GIF]"];
         [self startDownloadingGIF];
     }else{
         [self startDownloadingImage];
