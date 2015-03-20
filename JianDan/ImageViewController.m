@@ -119,7 +119,7 @@
 - (void)setImage:(UIImage *)image
 {
     self.imageView.image = image;
-    [self.imageView sizeToFit];
+//    [self.imageView sizeToFit];
     
     //设置的是显示的图片的大小
     CGFloat rootViewWidth = self.view.frame.size.width;
@@ -130,23 +130,25 @@
     CGFloat imageViewHeight = image.size.height;
     CGFloat imageViewProportion = (imageViewWidth / imageViewHeight);
     
-    
     if (imageViewProportion > rootViewProportion) {
-        //宽为View的宽
-        //高为图片等比例缩放的高
-        CGFloat height = (rootViewWidth * imageViewHeight / imageViewWidth);
-        self.imageView.frame = CGRectMake(0, 0, rootViewWidth, height);
-    }
-    else if (imageViewProportion <  rootViewProportion){
-        //高为View的高
-        //宽为图片等比例缩放的高
+        // 图片比较宽
+        // 高为View的高
+        // 宽为图片等比例缩放的宽
         CGFloat width = (rootViewHeight * imageViewWidth / imageViewHeight);
         self.imageView.frame = CGRectMake(0, 0, rootViewHeight, width);
+    }
+    else if (imageViewProportion <  rootViewProportion){
+        // 图片比较高
+        // 宽为View的高
+        // 高为图片等比例缩放的高
+        CGFloat height = (rootViewWidth * imageViewHeight / imageViewWidth);
+        self.imageView.frame = CGRectMake(0, 0, rootViewWidth, height);
     }
     else{
         //图片的宽高比例和View相同
         self.imageView.frame = CGRectMake(0, 0, image.size.width, image.size.height );
     }
+    
 }
 
 - (UIImageView *)imageView
