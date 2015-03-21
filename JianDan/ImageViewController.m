@@ -228,6 +228,7 @@
         _scrollView.zoomScale = 1.0;
         _scrollView.minimumZoomScale = 1.0;
         _scrollView.maximumZoomScale = 2.0;
+        
         _scrollView.scrollEnabled = NO;
         _scrollView.delegate = self;
         
@@ -243,7 +244,6 @@
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
 {
     self.scrollView.scrollEnabled = YES;
-//    self.spinner.hidden = YES;
 
     return self.imageView;
 }

@@ -23,6 +23,12 @@
 		14CC5A001A9C56480071BF92 /* PhotoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC59FF1A9C56480071BF92 /* PhotoTableViewController.m */; };
 		14CC5A091A9C5A850071BF92 /* OmeletteFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC5A081A9C5A850071BF92 /* OmeletteFetcher.m */; };
 		14CC5A0D1A9C5EA40071BF92 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC5A0C1A9C5EA40071BF92 /* ImageViewController.m */; };
+		14F1940D1ABDBC42001524D3 /* JTSAnimatedGIFUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F194021ABDBC42001524D3 /* JTSAnimatedGIFUtility.m */; };
+		14F1940E1ABDBC42001524D3 /* JTSImageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F194041ABDBC42001524D3 /* JTSImageInfo.m */; };
+		14F1940F1ABDBC42001524D3 /* JTSImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F194061ABDBC42001524D3 /* JTSImageViewController.m */; };
+		14F194101ABDBC42001524D3 /* JTSSimpleImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F194081ABDBC42001524D3 /* JTSSimpleImageDownloader.m */; };
+		14F194111ABDBC42001524D3 /* UIApplication+JTSImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F1940A1ABDBC42001524D3 /* UIApplication+JTSImageViewController.m */; };
+		14F194121ABDBC42001524D3 /* UIImage+JTSImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F1940C1ABDBC42001524D3 /* UIImage+JTSImageEffects.m */; };
 		14FB7B7F1AADCB8600A10846 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 14FB7B7E1AADCB8600A10846 /* Photo.m */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +73,18 @@
 		14CC5A081A9C5A850071BF92 /* OmeletteFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OmeletteFetcher.m; sourceTree = "<group>"; };
 		14CC5A0B1A9C5EA40071BF92 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
 		14CC5A0C1A9C5EA40071BF92 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
+		14F194011ABDBC42001524D3 /* JTSAnimatedGIFUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSAnimatedGIFUtility.h; sourceTree = "<group>"; };
+		14F194021ABDBC42001524D3 /* JTSAnimatedGIFUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSAnimatedGIFUtility.m; sourceTree = "<group>"; };
+		14F194031ABDBC42001524D3 /* JTSImageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSImageInfo.h; sourceTree = "<group>"; };
+		14F194041ABDBC42001524D3 /* JTSImageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSImageInfo.m; sourceTree = "<group>"; };
+		14F194051ABDBC42001524D3 /* JTSImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSImageViewController.h; sourceTree = "<group>"; };
+		14F194061ABDBC42001524D3 /* JTSImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSImageViewController.m; sourceTree = "<group>"; };
+		14F194071ABDBC42001524D3 /* JTSSimpleImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSSimpleImageDownloader.h; sourceTree = "<group>"; };
+		14F194081ABDBC42001524D3 /* JTSSimpleImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSSimpleImageDownloader.m; sourceTree = "<group>"; };
+		14F194091ABDBC42001524D3 /* UIApplication+JTSImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+JTSImageViewController.h"; sourceTree = "<group>"; };
+		14F1940A1ABDBC42001524D3 /* UIApplication+JTSImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+JTSImageViewController.m"; sourceTree = "<group>"; };
+		14F1940B1ABDBC42001524D3 /* UIImage+JTSImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JTSImageEffects.h"; sourceTree = "<group>"; };
+		14F1940C1ABDBC42001524D3 /* UIImage+JTSImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JTSImageEffects.m"; sourceTree = "<group>"; };
 		14FB7B7D1AADCB8600A10846 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Photo.h; path = ../Photo.h; sourceTree = "<group>"; };
 		14FB7B7E1AADCB8600A10846 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Photo.m; path = ../Photo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,12 +110,8 @@
 		14036EAB1ABD77C10033F5D2 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				14036EA01ABD77BD0033F5D2 /* ASImageScrollView.h */,
-				14036EA11ABD77BD0033F5D2 /* ASImageScrollView.m */,
-				14036EA21ABD77BD0033F5D2 /* ASMediaFocusManager.h */,
-				14036EA31ABD77BD0033F5D2 /* ASMediaFocusManager.m */,
-				14036EA41ABD77BD0033F5D2 /* ASMediaFocusController.h */,
-				14036EA51ABD77BD0033F5D2 /* ASMediaFocusController.m */,
+				14F193FF1ABDBC27001524D3 /* 图片浏览AS */,
+				14F194001ABDBC42001524D3 /* 图片浏览JTS */,
 			);
 			name = Library;
 			sourceTree = "<group>";
@@ -207,6 +221,39 @@
 			name = "Photo Viewer";
 			sourceTree = "<group>";
 		};
+		14F193FF1ABDBC27001524D3 /* 图片浏览AS */ = {
+			isa = PBXGroup;
+			children = (
+				14036EA01ABD77BD0033F5D2 /* ASImageScrollView.h */,
+				14036EA11ABD77BD0033F5D2 /* ASImageScrollView.m */,
+				14036EA21ABD77BD0033F5D2 /* ASMediaFocusManager.h */,
+				14036EA31ABD77BD0033F5D2 /* ASMediaFocusManager.m */,
+				14036EA41ABD77BD0033F5D2 /* ASMediaFocusController.h */,
+				14036EA51ABD77BD0033F5D2 /* ASMediaFocusController.m */,
+			);
+			name = "图片浏览AS";
+			sourceTree = "<group>";
+		};
+		14F194001ABDBC42001524D3 /* 图片浏览JTS */ = {
+			isa = PBXGroup;
+			children = (
+				14F194011ABDBC42001524D3 /* JTSAnimatedGIFUtility.h */,
+				14F194021ABDBC42001524D3 /* JTSAnimatedGIFUtility.m */,
+				14F194031ABDBC42001524D3 /* JTSImageInfo.h */,
+				14F194041ABDBC42001524D3 /* JTSImageInfo.m */,
+				14F194051ABDBC42001524D3 /* JTSImageViewController.h */,
+				14F194061ABDBC42001524D3 /* JTSImageViewController.m */,
+				14F194071ABDBC42001524D3 /* JTSSimpleImageDownloader.h */,
+				14F194081ABDBC42001524D3 /* JTSSimpleImageDownloader.m */,
+				14F194091ABDBC42001524D3 /* UIApplication+JTSImageViewController.h */,
+				14F1940A1ABDBC42001524D3 /* UIApplication+JTSImageViewController.m */,
+				14F1940B1ABDBC42001524D3 /* UIImage+JTSImageEffects.h */,
+				14F1940C1ABDBC42001524D3 /* UIImage+JTSImageEffects.m */,
+			);
+			name = "图片浏览JTS";
+			path = Source;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -310,15 +357,21 @@
 			files = (
 				14CC59D71A9C52A10071BF92 /* AppDelegate.m in Sources */,
 				14036EA71ABD77BD0033F5D2 /* ASImageScrollView.m in Sources */,
+				14F194101ABDBC42001524D3 /* JTSSimpleImageDownloader.m in Sources */,
+				14F1940D1ABDBC42001524D3 /* JTSAnimatedGIFUtility.m in Sources */,
 				14CC59DA1A9C52A10071BF92 /* JianDan.xcdatamodeld in Sources */,
 				14036EA91ABD77BD0033F5D2 /* ASMediaFocusController.m in Sources */,
 				14CC59DD1A9C52A10071BF92 /* ViewController.m in Sources */,
 				14036EA81ABD77BD0033F5D2 /* ASMediaFocusManager.m in Sources */,
+				14F194121ABDBC42001524D3 /* UIImage+JTSImageEffects.m in Sources */,
 				14FB7B7F1AADCB8600A10846 /* Photo.m in Sources */,
+				14F1940F1ABDBC42001524D3 /* JTSImageViewController.m in Sources */,
 				14CC5A091A9C5A850071BF92 /* OmeletteFetcher.m in Sources */,
+				14F1940E1ABDBC42001524D3 /* JTSImageInfo.m in Sources */,
 				14CC59D41A9C52A10071BF92 /* main.m in Sources */,
 				14CC5A0D1A9C5EA40071BF92 /* ImageViewController.m in Sources */,
 				14CC5A001A9C56480071BF92 /* PhotoTableViewController.m in Sources */,
+				14F194111ABDBC42001524D3 /* UIApplication+JTSImageViewController.m in Sources */,
 				14CC59FC1A9C52F50071BF92 /* CoreDataTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
