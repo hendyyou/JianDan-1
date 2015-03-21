@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "Photo.h"
 
-@interface ImageViewController : UIViewController
+#import "ASMediaFocusManager.h"
+
+@interface ImageViewController : UIViewController<ASMediasFocusDelegate>
+
+@property (strong, nonatomic) ASMediaFocusManager *mediaFocusManager;
 @property (strong, nonatomic) Photo * photo;
+
 @end

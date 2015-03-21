@@ -37,12 +37,6 @@
 }
 
 
-
-
-
-
-
-
 #pragma mark - Utils
 
 -(void)startDownloadingGIF
@@ -69,12 +63,61 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.image = image;
                 [self.scrollView addSubview:self.imageView];
+                
+                UITapGestureRecognizer *tapGestureRecognizer=[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(showImage:)];
+                [self.imageView addGestureRecognizer: tapGestureRecognizer];
+                [self.imageView setUserInteractionEnabled:YES];
+                
                 [self.view addSubview:self.scrollView];
                 self.spinner.hidden = YES;
             });
         });
     }
 }
+
+
+- (void)showImage:(UITapGestureRecognizer *)sender
+{
+    self.mediaFocusManager = [[ASMediaFocusManager alloc] init];
+    self.mediaFocusManager.delegate = self;
+    
+    [self.mediaFocusManager installOnViews:@[self.imageView]];
+}
+
+
+
+#pragma mark - ASMediaFocusDelegate
+
+- (UIImage *)mediaFocusManager:(ASMediaFocusManager *)mediaFocusManager imageForView:(UIView *)view
+{
+    NSLog(@"imageForView");
+    
+    return ((UIImageView *)view).image;
+}
+
+- (CGRect)mediaFocusManager:(ASMediaFocusManager *)mediaFocusManager finalFrameforView:(UIView *)view
+{
+    NSLog(@"finalFrameforView");
+    
+    return self.parentViewController.view.bounds;
+}
+
+- (UIViewController *)parentViewControllerForMediaFocusManager:(ASMediaFocusManager *)mediaFocusManager
+{
+    NSLog(@"mediaFocusManager");
+    
+    return self.parentViewController;
+}
+
+- (NSString *)mediaFocusManager:(ASMediaFocusManager *)mediaFocusManager mediaPathForView:(UIView *)view
+{
+    NSLog(@"mediaPathForView");
+    
+    return nil;
+}
+
+
+
 
 #pragma mark -Setter and getter
 
@@ -134,12 +177,14 @@
         // 图片比较宽
         // 高为View的高
         // 宽为图片等比例缩放的宽
-        CGFloat width = (rootViewHeight * imageViewWidth / imageViewHeight);
-        self.imageView.frame = CGRectMake(0, 0, rootViewHeight, width);
+//        CGFloat width = (rootViewHeight * imageViewWidth / imageViewHeight);
+//        self.imageView.frame = CGRectMake(0, 0, rootViewHeight, width);
+        CGFloat height = (rootViewWidth * imageViewHeight / imageViewWidth);
+        self.imageView.frame = CGRectMake(0, 0, rootViewWidth, height);
     }
     else if (imageViewProportion <  rootViewProportion){
         // 图片比较高
-        // 宽为View的高
+        // 宽为View的宽
         // 高为图片等比例缩放的高
         CGFloat height = (rootViewWidth * imageViewHeight / imageViewWidth);
         self.imageView.frame = CGRectMake(0, 0, rootViewWidth, height);
@@ -164,7 +209,7 @@
 {
     _scrollView = scrollView;
     
-//    //    zoomScale - 变化比例
+    //    zoomScale - 变化比例
 //    _scrollView.zoomScale = 1.0;
 //    _scrollView.minimumZoomScale = 1.0;
 //    _scrollView.maximumZoomScale = 2.0;

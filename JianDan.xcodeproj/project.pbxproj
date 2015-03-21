@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14036EA71ABD77BD0033F5D2 /* ASImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14036EA11ABD77BD0033F5D2 /* ASImageScrollView.m */; };
+		14036EA81ABD77BD0033F5D2 /* ASMediaFocusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 14036EA31ABD77BD0033F5D2 /* ASMediaFocusManager.m */; };
+		14036EA91ABD77BD0033F5D2 /* ASMediaFocusController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14036EA51ABD77BD0033F5D2 /* ASMediaFocusController.m */; };
+		14036EAA1ABD77BD0033F5D2 /* ASMediaFocusController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14036EA61ABD77BD0033F5D2 /* ASMediaFocusController.xib */; };
 		14CC59D41A9C52A10071BF92 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC59D31A9C52A10071BF92 /* main.m */; };
 		14CC59D71A9C52A10071BF92 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC59D61A9C52A10071BF92 /* AppDelegate.m */; };
 		14CC59DA1A9C52A10071BF92 /* JianDan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 14CC59D81A9C52A10071BF92 /* JianDan.xcdatamodeld */; };
@@ -33,6 +37,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		14036EA01ABD77BD0033F5D2 /* ASImageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASImageScrollView.h; sourceTree = "<group>"; };
+		14036EA11ABD77BD0033F5D2 /* ASImageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASImageScrollView.m; sourceTree = "<group>"; };
+		14036EA21ABD77BD0033F5D2 /* ASMediaFocusManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASMediaFocusManager.h; sourceTree = "<group>"; };
+		14036EA31ABD77BD0033F5D2 /* ASMediaFocusManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASMediaFocusManager.m; sourceTree = "<group>"; };
+		14036EA41ABD77BD0033F5D2 /* ASMediaFocusController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASMediaFocusController.h; sourceTree = "<group>"; };
+		14036EA51ABD77BD0033F5D2 /* ASMediaFocusController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASMediaFocusController.m; sourceTree = "<group>"; };
+		14036EA61ABD77BD0033F5D2 /* ASMediaFocusController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASMediaFocusController.xib; sourceTree = "<group>"; };
 		14CC59CE1A9C52A10071BF92 /* JianDan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JianDan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14CC59D21A9C52A10071BF92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14CC59D31A9C52A10071BF92 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -78,6 +89,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		14036EAB1ABD77C10033F5D2 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				14036EA01ABD77BD0033F5D2 /* ASImageScrollView.h */,
+				14036EA11ABD77BD0033F5D2 /* ASImageScrollView.m */,
+				14036EA21ABD77BD0033F5D2 /* ASMediaFocusManager.h */,
+				14036EA31ABD77BD0033F5D2 /* ASMediaFocusManager.m */,
+				14036EA41ABD77BD0033F5D2 /* ASMediaFocusController.h */,
+				14036EA51ABD77BD0033F5D2 /* ASMediaFocusController.m */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
 		14CC59C51A9C52A10071BF92 = {
 			isa = PBXGroup;
 			children = (
@@ -100,16 +124,13 @@
 			isa = PBXGroup;
 			children = (
 				14CC5A061A9C598E0071BF92 /* Web.h */,
-				14CC59D51A9C52A10071BF92 /* AppDelegate.h */,
-				14CC59D61A9C52A10071BF92 /* AppDelegate.m */,
 				14CC59DE1A9C52A10071BF92 /* Main.storyboard */,
-				14CC59E11A9C52A10071BF92 /* Images.xcassets */,
-				14CC59E31A9C52A10071BF92 /* LaunchScreen.xib */,
-				14CC59D81A9C52A10071BF92 /* JianDan.xcdatamodeld */,
+				14036EA61ABD77BD0033F5D2 /* ASMediaFocusController.xib */,
 				14CC5A0E1A9C5EAA0071BF92 /* Photo Viewer */,
 				14CC59FD1A9C52FA0071BF92 /* TableView */,
 				14CC5A0A1A9C5A8A0071BF92 /* Fetcher */,
 				14CC5A041A9C57FD0071BF92 /* Entity */,
+				14036EAB1ABD77C10033F5D2 /* Library */,
 				14CC59D11A9C52A10071BF92 /* Supporting Files */,
 			);
 			path = JianDan;
@@ -118,6 +139,11 @@
 		14CC59D11A9C52A10071BF92 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				14CC59D51A9C52A10071BF92 /* AppDelegate.h */,
+				14CC59D61A9C52A10071BF92 /* AppDelegate.m */,
+				14CC59E11A9C52A10071BF92 /* Images.xcassets */,
+				14CC59E31A9C52A10071BF92 /* LaunchScreen.xib */,
+				14CC59D81A9C52A10071BF92 /* JianDan.xcdatamodeld */,
 				14CC59DB1A9C52A10071BF92 /* ViewController.h */,
 				14CC59DC1A9C52A10071BF92 /* ViewController.m */,
 				14CC59D21A9C52A10071BF92 /* Info.plist */,
@@ -264,6 +290,7 @@
 				14CC59E01A9C52A10071BF92 /* Main.storyboard in Resources */,
 				14CC59E51A9C52A10071BF92 /* LaunchScreen.xib in Resources */,
 				14CC59E21A9C52A10071BF92 /* Images.xcassets in Resources */,
+				14036EAA1ABD77BD0033F5D2 /* ASMediaFocusController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,8 +309,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				14CC59D71A9C52A10071BF92 /* AppDelegate.m in Sources */,
+				14036EA71ABD77BD0033F5D2 /* ASImageScrollView.m in Sources */,
 				14CC59DA1A9C52A10071BF92 /* JianDan.xcdatamodeld in Sources */,
+				14036EA91ABD77BD0033F5D2 /* ASMediaFocusController.m in Sources */,
 				14CC59DD1A9C52A10071BF92 /* ViewController.m in Sources */,
+				14036EA81ABD77BD0033F5D2 /* ASMediaFocusManager.m in Sources */,
 				14FB7B7F1AADCB8600A10846 /* Photo.m in Sources */,
 				14CC5A091A9C5A850071BF92 /* OmeletteFetcher.m in Sources */,
 				14CC59D41A9C52A10071BF92 /* main.m in Sources */,
