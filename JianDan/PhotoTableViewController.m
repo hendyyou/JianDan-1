@@ -153,31 +153,7 @@
     NSInteger pageNum = [self.pageTextField.text integerValue];
     
     [self goPageWithNumber:pageNum];
-//    if ([page isEqual:self.prePage]) {
-//        
-//        NSLog(@"Page is Not Change");
-//        
-//        
-//        return;
-//    }
-//    else if (pageNum > self.latestPage){
-//        NSLog(@"超出最新页面");
-//        
-//        
-//        return;
-//    }
-//    else{
-//        self.prePage = page;
-//        
-//    }
 }
-
-
-//- (IBAction)TextField_DidEndOnExit:(id)sender {
-//    // 隐藏键盘.
-//    [sender resignFirstResponder];
-//}
-
 
 
 
@@ -195,20 +171,6 @@
 }
 
 
-
-/*
--(NSManagedObjectContext *)managedObjectContext
-{
-    if (_managedObjectContext != nil) {
-        return _managedObjectContext;
-    }
-    
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    _managedObjectContext = appDelegate.managedObjectContext;
-    
-    return _managedObjectContext;
-}
- */
 
 - (void)setManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
 {
@@ -240,10 +202,6 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-//    Photo *photo = [self.fetchedResultsController objectAtIndexPath:indexPath];
-//    
-//    cell.textLabel.text = photo.publisher;
-//    cell.detailTextLabel.text = photo.date;
     
     [self configureCell:cell atIndexPath:indexPath];
     
@@ -261,22 +219,11 @@
     cell.detailTextLabel.textColor = photo.viewed.boolValue ? [UIColor grayColor] : [UIColor blackColor];
 
     
-//    UILabel *publisherLabel = (UILabel *)[cell viewWithTag:100];
-//    publisherLabel.text = photo.publisher ? photo.publisher : @"Loading";
-//    
-//    UILabel *dateLabel = (UILabel *)[cell viewWithTag:101];
-//    dateLabel.text = photo.date ? photo.date : @"Loading";
-//    
-//    UILabel *gifLabel = (UILabel *)[cell viewWithTag:102];
-//    
     if (photo.thumbnail != nil) {
         cell.backgroundColor = [UIColor colorWithRed:0.6 green:0.75 blue:0.85 alpha:1.0];
-//        gifLabel.hidden = NO;
     }
     else{
         cell.backgroundColor = [UIColor whiteColor];
-//        NSLog(@"%@ : %@", photo.publisher, photo.date);
-//        gifLabel.hidden = YES;
     }
     
 }
@@ -301,8 +248,6 @@
                     
                     ImageViewController *imageVC = (ImageViewController *)segue.destinationViewController;
                     imageVC.photo = photo;
-//                    imageVC.imageURL = photo.imageURL;
-//                    imageVC.title = photo.title;
                 }
             }
         }

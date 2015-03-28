@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		14036EA71ABD77BD0033F5D2 /* ASImageScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14036EA11ABD77BD0033F5D2 /* ASImageScrollView.m */; };
-		14036EA81ABD77BD0033F5D2 /* ASMediaFocusManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 14036EA31ABD77BD0033F5D2 /* ASMediaFocusManager.m */; };
-		14036EA91ABD77BD0033F5D2 /* ASMediaFocusController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14036EA51ABD77BD0033F5D2 /* ASMediaFocusController.m */; };
-		14036EAA1ABD77BD0033F5D2 /* ASMediaFocusController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14036EA61ABD77BD0033F5D2 /* ASMediaFocusController.xib */; };
 		14B003101AC66B93007A75B7 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B0030F1AC66B93007A75B7 /* Photo.m */; };
 		14CC59D41A9C52A10071BF92 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC59D31A9C52A10071BF92 /* main.m */; };
 		14CC59D71A9C52A10071BF92 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CC59D61A9C52A10071BF92 /* AppDelegate.m */; };
@@ -43,13 +39,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		14036EA01ABD77BD0033F5D2 /* ASImageScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASImageScrollView.h; sourceTree = "<group>"; };
-		14036EA11ABD77BD0033F5D2 /* ASImageScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASImageScrollView.m; sourceTree = "<group>"; };
-		14036EA21ABD77BD0033F5D2 /* ASMediaFocusManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASMediaFocusManager.h; sourceTree = "<group>"; };
-		14036EA31ABD77BD0033F5D2 /* ASMediaFocusManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASMediaFocusManager.m; sourceTree = "<group>"; };
-		14036EA41ABD77BD0033F5D2 /* ASMediaFocusController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASMediaFocusController.h; sourceTree = "<group>"; };
-		14036EA51ABD77BD0033F5D2 /* ASMediaFocusController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASMediaFocusController.m; sourceTree = "<group>"; };
-		14036EA61ABD77BD0033F5D2 /* ASMediaFocusController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASMediaFocusController.xib; sourceTree = "<group>"; };
 		14B0030E1AC66B93007A75B7 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
 		14B0030F1AC66B93007A75B7 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		14CC59CE1A9C52A10071BF92 /* JianDan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JianDan.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,7 +99,6 @@
 		14036EAB1ABD77C10033F5D2 /* Library */ = {
 			isa = PBXGroup;
 			children = (
-				14F193FF1ABDBC27001524D3 /* 图片浏览AS */,
 				14F194001ABDBC42001524D3 /* 图片浏览JTS */,
 			);
 			name = Library;
@@ -139,7 +127,6 @@
 			children = (
 				14CC5A061A9C598E0071BF92 /* Web.h */,
 				14CC59DE1A9C52A10071BF92 /* Main.storyboard */,
-				14036EA61ABD77BD0033F5D2 /* ASMediaFocusController.xib */,
 				14CC5A0E1A9C5EAA0071BF92 /* Photo Viewer */,
 				14CC59FD1A9C52FA0071BF92 /* TableView */,
 				14CC5A0A1A9C5A8A0071BF92 /* Fetcher */,
@@ -219,19 +206,6 @@
 				14CC5A0C1A9C5EA40071BF92 /* ImageViewController.m */,
 			);
 			name = "Photo Viewer";
-			sourceTree = "<group>";
-		};
-		14F193FF1ABDBC27001524D3 /* 图片浏览AS */ = {
-			isa = PBXGroup;
-			children = (
-				14036EA01ABD77BD0033F5D2 /* ASImageScrollView.h */,
-				14036EA11ABD77BD0033F5D2 /* ASImageScrollView.m */,
-				14036EA21ABD77BD0033F5D2 /* ASMediaFocusManager.h */,
-				14036EA31ABD77BD0033F5D2 /* ASMediaFocusManager.m */,
-				14036EA41ABD77BD0033F5D2 /* ASMediaFocusController.h */,
-				14036EA51ABD77BD0033F5D2 /* ASMediaFocusController.m */,
-			);
-			name = "图片浏览AS";
 			sourceTree = "<group>";
 		};
 		14F194001ABDBC42001524D3 /* 图片浏览JTS */ = {
@@ -337,7 +311,6 @@
 				14CC59E01A9C52A10071BF92 /* Main.storyboard in Resources */,
 				14CC59E51A9C52A10071BF92 /* LaunchScreen.xib in Resources */,
 				14CC59E21A9C52A10071BF92 /* Images.xcassets in Resources */,
-				14036EAA1ABD77BD0033F5D2 /* ASMediaFocusController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,13 +329,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				14CC59D71A9C52A10071BF92 /* AppDelegate.m in Sources */,
-				14036EA71ABD77BD0033F5D2 /* ASImageScrollView.m in Sources */,
 				14F194101ABDBC42001524D3 /* JTSSimpleImageDownloader.m in Sources */,
 				14F1940D1ABDBC42001524D3 /* JTSAnimatedGIFUtility.m in Sources */,
 				14CC59DA1A9C52A10071BF92 /* JianDan.xcdatamodeld in Sources */,
-				14036EA91ABD77BD0033F5D2 /* ASMediaFocusController.m in Sources */,
 				14CC59DD1A9C52A10071BF92 /* ViewController.m in Sources */,
-				14036EA81ABD77BD0033F5D2 /* ASMediaFocusManager.m in Sources */,
 				14F194121ABDBC42001524D3 /* UIImage+JTSImageEffects.m in Sources */,
 				14F1940F1ABDBC42001524D3 /* JTSImageViewController.m in Sources */,
 				14CC5A091A9C5A850071BF92 /* OmeletteFetcher.m in Sources */,

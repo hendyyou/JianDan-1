@@ -78,18 +78,11 @@
 
 - (void)showImage:(UITapGestureRecognizer *)sender
 {
-//    self.mediaFocusManager = [[ASMediaFocusManager alloc] init];
-//    self.mediaFocusManager.delegate = self;
-//    
-//    [self.mediaFocusManager installOnViews:@[self.imageView]];
-    
     
     // Create image info
     JTSImageInfo *imageInfo = [[JTSImageInfo alloc] init];
     imageInfo.image = self.imageView.image;
-//    imageInfo.referenceRect = self.bigImageButton.frame;
     imageInfo.referenceRect = self.imageView.frame;
-//    imageInfo.referenceView = self.bigImageButton.superview;
     imageInfo.referenceView = self.imageView.superview;
     
     // Setup view controller
@@ -103,37 +96,6 @@
     
 }
 
-
-
-#pragma mark - ASMediaFocusDelegate
-
-- (UIImage *)mediaFocusManager:(ASMediaFocusManager *)mediaFocusManager imageForView:(UIView *)view
-{
-    NSLog(@"imageForView");
-    
-    return ((UIImageView *)view).image;
-}
-
-- (CGRect)mediaFocusManager:(ASMediaFocusManager *)mediaFocusManager finalFrameforView:(UIView *)view
-{
-    NSLog(@"finalFrameforView");
-    
-    return self.parentViewController.view.bounds;
-}
-
-- (UIViewController *)parentViewControllerForMediaFocusManager:(ASMediaFocusManager *)mediaFocusManager
-{
-    NSLog(@"mediaFocusManager");
-    
-    return self.parentViewController;
-}
-
-- (NSString *)mediaFocusManager:(ASMediaFocusManager *)mediaFocusManager mediaPathForView:(UIView *)view
-{
-    NSLog(@"mediaPathForView");
-    
-    return nil;
-}
 
 
 
@@ -228,14 +190,6 @@
 {
     _scrollView = scrollView;
     
-    //    zoomScale - 变化比例
-//    _scrollView.zoomScale = 1.0;
-//    _scrollView.minimumZoomScale = 1.0;
-//    _scrollView.maximumZoomScale = 2.0;
-//    _scrollView.scrollEnabled = NO;
-//    _scrollView.delegate = self;
-//    
-//    _scrollView.contentSize = self.image ? self.image.size : CGSizeZero;
 }
 
 - (UIScrollView *)scrollView
