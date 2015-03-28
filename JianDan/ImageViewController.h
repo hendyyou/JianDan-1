@@ -11,6 +11,9 @@
 
 #import "ASMediaFocusManager.h"
 
+#import "JTSImageViewController.h"
+#import "JTSImageInfo.h"
+
 @interface ImageViewController : UIViewController<ASMediasFocusDelegate>
 
 @property (strong, nonatomic) ASMediaFocusManager *mediaFocusManager;

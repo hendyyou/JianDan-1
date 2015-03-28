@@ -85,7 +85,11 @@
 - (NSInteger)getLatestPage
 {
     NSURL * url = [NSURL URLWithString:WEBURL];
-    NSData * data = [NSData dataWithContentsOfURL:url];
+    NSError *error = nil;
+    NSData * data = [NSData dataWithContentsOfURL:url options:NSDataReadingUncached error:&error];
+    if (error) {
+        NSLog(@"error : %@", error);
+    }
     //解决中文乱码,用GBK
     NSStringEncoding enc = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingUTF8);
     NSString * html = [[NSString alloc] initWithData:data encoding:enc];
@@ -252,6 +256,9 @@
     
     cell.textLabel.text = photo.publisher;
     cell.detailTextLabel.text = photo.date;
+    
+    cell.textLabel.textColor = photo.viewed.boolValue ? [UIColor grayColor] : [UIColor blueColor];
+    cell.detailTextLabel.textColor = photo.viewed.boolValue ? [UIColor grayColor] : [UIColor blackColor];
 
     
 //    UILabel *publisherLabel = (UILabel *)[cell viewWithTag:100];
@@ -263,7 +270,7 @@
 //    UILabel *gifLabel = (UILabel *)[cell viewWithTag:102];
 //    
     if (photo.thumbnail != nil) {
-        cell.backgroundColor = [UIColor lightGrayColor];
+        cell.backgroundColor = [UIColor colorWithRed:0.6 green:0.75 blue:0.85 alpha:1.0];
 //        gifLabel.hidden = NO;
     }
     else{
@@ -289,6 +296,9 @@
             if([segue.identifier isEqualToString:@"Show Photo"]){
                 if([segue.destinationViewController isKindOfClass:[ImageViewController class]]){
                     Photo *photo = [self.fetchedResultsController objectAtIndexPath:indexPath];
+                    photo.viewed = [NSNumber numberWithBool:YES];
+                    [self.managedObjectContext save:nil];
+                    
                     ImageViewController *imageVC = (ImageViewController *)segue.destinationViewController;
                     imageVC.photo = photo;
 //                    imageVC.imageURL = photo.imageURL;

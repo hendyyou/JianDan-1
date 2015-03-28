@@ -65,9 +65,7 @@
                                 withPage:(NSString *)page
 {
     NSString *readyAnalyzeCode = onePhotoCode;
-    
-//    NSString *unique = [self getStringInSourceString:readyAnalyzeCode ByPrefix:@"id=\"comment-" andSuffix:@"\">"];
-    
+        
     NSString *unique = [self getStringInSourceString:readyAnalyzeCode ByPrefix:@"id=\"comment-" andSuffix:@"\">"];
     
     //query in database
@@ -108,7 +106,7 @@
         }
         
         photo.imageURL = imageURL;
-        
+        photo.viewed  = [NSNumber numberWithBool:NO];        
         
     }else { // found the Photo do nothing
         NSLog(@"\nthere is only one photo in context which unique = %@\n", unique);
@@ -122,6 +120,13 @@
     NSString *resultString = nil;
     
     NSRange resultPrePosition = [readyAnalyzeCode rangeOfString:prefix];
+    
+    if (resultPrePosition.length == 0) {
+        
+        NSLog(@"Fetcher : 截取字段错误");
+        
+        return nil;
+    }
     NSString *resultStringTemp = [readyAnalyzeCode substringFromIndex:resultPrePosition.location+resultPrePosition.length];
     NSRange resultAfterPosition = [resultStringTemp rangeOfString:suffix];
     resultString = [resultStringTemp substringToIndex:resultAfterPosition.location];

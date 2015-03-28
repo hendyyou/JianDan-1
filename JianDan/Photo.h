@@ -2,7 +2,7 @@
 //  Photo.h
 //  JianDan
 //
-//  Created by Sean on 15/3/9.
+//  Created by Sean on 15/3/28.
 //  Copyright (c) 2015年 ZIWUXUANXU. All rights reserved.
 //
 
@@ -17,7 +17,8 @@
 @property (nonatomic, retain) NSString * number;
 @property (nonatomic, retain) NSString * page;
 @property (nonatomic, retain) NSString * publisher;
-@property (nonatomic, retain) NSString * unique;
 @property (nonatomic, retain) NSString * thumbnail;
+@property (nonatomic, retain) NSString * unique;
+@property (nonatomic, retain) NSNumber * viewed;
 
 @end

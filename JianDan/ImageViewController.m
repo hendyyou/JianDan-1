@@ -78,10 +78,29 @@
 
 - (void)showImage:(UITapGestureRecognizer *)sender
 {
-    self.mediaFocusManager = [[ASMediaFocusManager alloc] init];
-    self.mediaFocusManager.delegate = self;
+//    self.mediaFocusManager = [[ASMediaFocusManager alloc] init];
+//    self.mediaFocusManager.delegate = self;
+//    
+//    [self.mediaFocusManager installOnViews:@[self.imageView]];
     
-    [self.mediaFocusManager installOnViews:@[self.imageView]];
+    
+    // Create image info
+    JTSImageInfo *imageInfo = [[JTSImageInfo alloc] init];
+    imageInfo.image = self.imageView.image;
+//    imageInfo.referenceRect = self.bigImageButton.frame;
+    imageInfo.referenceRect = self.imageView.frame;
+//    imageInfo.referenceView = self.bigImageButton.superview;
+    imageInfo.referenceView = self.imageView.superview;
+    
+    // Setup view controller
+    JTSImageViewController *imageViewer = [[JTSImageViewController alloc]
+                                           initWithImageInfo:imageInfo
+                                           mode:JTSImageViewControllerMode_Image
+                                           backgroundStyle:JTSImageViewControllerBackgroundOption_Blurred];
+    
+    // Present the view controller.
+    [imageViewer showFromViewController:self transition:JTSImageViewControllerTransition_FromOriginalPosition];
+    
 }
 
 
