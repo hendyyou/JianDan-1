@@ -75,6 +75,7 @@
                                        ByAnalyzeWebURL:webURL];
     
     self.fetchedResultsController.fetchRequest.predicate = [NSPredicate predicateWithFormat:@"page = %@", self.prePage];
+    self.fetchedResultsController.fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"number" ascending:NO]];
     [self.fetchedResultsController performFetch:nil];
     [self.tableView reloadData];
 
