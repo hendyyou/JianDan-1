@@ -13,6 +13,8 @@
 
 #define WEBURL @"http://jandan.net/pic"
 
+
+
 #define PHOTOWEBURL @"http://jandan.net/pic/page-NUMBER#comments"
 
 #endif
